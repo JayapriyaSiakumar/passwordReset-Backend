@@ -30,7 +30,7 @@ export const sendMail = async (to, subject, text) => {
     tls: {
       rejectUnauthorized: false,
     },
-    port: 25,
+    port: 587,
     secure: true,
     auth: {
       user: process.env.PASS_MAIL,
