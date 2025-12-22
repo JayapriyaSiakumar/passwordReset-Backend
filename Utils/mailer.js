@@ -25,21 +25,21 @@ dotenv.config();
 
 export const sendMail = async (to, subject, text) => {
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
+    service: "gmail",
+    host: "smtp.gmail.com",
     tls: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
     },
     port: 465,
     secure: false,
     auth: {
-      user: process.env.FROM_EMAIL,
-      pass: process.env.PASS_KEY
-    }
+      user: process.env.PASS_MAIL,
+      pass: process.env.PASS_KEY,
+    },
   });
 
   const mailData = {
-    from: process.env.FROM_EMAIL,
+    from: process.env.PASS_MAIL,
     to,
     subject,
     text,
@@ -49,7 +49,7 @@ export const sendMail = async (to, subject, text) => {
       if (err) {
         reject(err);
       } else {
-        console.log("Mail Send Successfully")
+        console.log("Mail Send Successfully");
         resolve(info);
       }
     });
