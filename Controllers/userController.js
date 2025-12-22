@@ -3,7 +3,7 @@ import User from "../Models/userSchema.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import sendMail from "../Utils/mailer.js";
+import { sendMail } from "../Utils/mailer.js";
 
 dotenv.config();
 

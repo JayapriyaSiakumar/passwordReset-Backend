@@ -22,6 +22,7 @@ dotenv.config();
 // };
 
 // export default sendMail;
+
 export const sendMail = async (to, subject, text) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
