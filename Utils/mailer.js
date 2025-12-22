@@ -31,7 +31,7 @@ export const sendMail = async (to, subject, text) => {
       rejectUnauthorized: false,
     },
     port: 465,
-    secure: false,
+    secure: true,
     auth: {
       user: process.env.PASS_MAIL,
       pass: process.env.PASS_KEY,
