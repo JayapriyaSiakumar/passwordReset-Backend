@@ -93,7 +93,9 @@ export const forgotPassword = async (req, res) => {
        If you did not request this, please ignore this email.`
     );
     //console.log("Email Sent Successfully");
-    res.status(200).json({ message: "Email Sent Successfully" });
+    res.status(200).json({
+      message: "Email Sent Successfully. Check email for Reset Password Link",
+    });
   } catch (error) {
     res.status(500).json({
       message: `Cannot give forgot password, Error in forgot password - ${error}`,
