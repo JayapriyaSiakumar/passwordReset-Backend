@@ -3,7 +3,7 @@ import User from "../Models/userSchema.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { sendMail } from "../Utils/mailer.js";
+import sendEmail from "../Utils/mailer.js";
 
 dotenv.config();
 
@@ -82,13 +82,13 @@ export const forgotPassword = async (req, res) => {
     });
 
     //send email
-    await sendMail(
+    await sendEmail(
       userDetail.email,
       "Password Reset link",
       `You are receiving this email because you have requested to reset your password.
        Please click the following link to reset your password: https://playful-naiad-52c608.netlify.app/reset-password/${userDetail._id}/${token}
        If you did not request this, please ignore this email.`,
-      `<h1>You are receiving this email because you have requested to reset your password.</h1><br/>
+      `<h3>You are receiving this email because you have requested to reset your password.</h3><br/>
        Please click the following link to reset your password: <b>https://playful-naiad-52c608.netlify.app/reset-password/${userDetail._id}/${token}</b>
        If you did not request this, please ignore this email.`
     );
